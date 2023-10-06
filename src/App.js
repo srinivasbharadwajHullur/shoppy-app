@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Body from './components/Body';
+import Header from './components/Header';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MensCategories from './components/MensCategories';
+import WomensCategories from './components/WomensCategories';
+import JewelleryCategories from './components/JewelleryCategories';
+import ElectronicCategories from './components/ElectronicCategories';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Header />
+        <Routes>
+          <Route path='/' element={<Body />}/>
+          <Route path='/menscategories' element={<MensCategories />}/>
+          <Route path='/womenscategories' element={<WomensCategories />}/>
+          <Route path='/jewellerycategories' element={<JewelleryCategories />}/>
+          <Route path='/electronicscategories' element={<ElectronicCategories />}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
